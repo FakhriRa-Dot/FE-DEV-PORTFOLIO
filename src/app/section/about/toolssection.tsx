@@ -18,10 +18,7 @@ export default function TechnicalToolkit() {
 
             <div className="flex flex-wrap gap-2">
               {stack.items.map((tech) => (
-                <span
-                  key={tech.id}
-                  className="rounded-full border border-sage/30 bg-sage/10 px-3 py-1 text-xs font-medium text-sage transition hover:bg-sage hover:text-white"
-                >
+                <span key={tech.id} className="rounded-full btn-tools text-xs">
                   {tech.label}
                 </span>
               ))}

@@ -4,8 +4,7 @@ export default function ContactSection() {
   return (
     <section className="px-6 py-24 md:px-16">
       <div className="grid overflow-hidden rounded-2xl md:grid-cols-2 shadow-lg">
-        {/* LEFT */}
-        <div className="bg-sage p-10 text-white">
+        <div className="bg-ink p-10 text-white">
           <h2 className="text-3xl font-bold">Let’s Work Together</h2>
 
           <p className="mt-3 text-sm text-white/80">
@@ -37,7 +36,6 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* FORM */}
         <form
           action="https://formspree.io/f/mykpkpdl"
           method="POST"
@@ -69,7 +67,7 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="w-full rounded bg-sage py-3 text-white transition hover:bg-sageSoft"
+            className="w-full rounded btn-ink py-3 transition"
           >
             Send Message
           </button>
