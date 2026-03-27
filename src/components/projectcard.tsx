@@ -1,5 +1,4 @@
 import { Project } from "@/data/project";
-import { SkillId } from "@/data/skill";
 import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 
@@ -23,24 +22,40 @@ export default function ProjectCard({ project }: Props) {
         )}
 
         <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/10" />
+
+        {project.featured && (
+          <span className="absolute top-3 left-3 rounded-md bg-black/80 px-2 py-1 text-xs text-white">
+            Featured
+          </span>
+        )}
       </div>
 
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-(--color-ink)">
-          {project.title}
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-(--color-ink)">
+            {project.title}
+          </h3>
+          <span className="text-xs text-(--color-ink)/60">{project.year}</span>
+        </div>
 
         <p className="mt-2 text-sm text-(--color-ink)/70 leading-relaxed">
           {project.description}
         </p>
 
+        {project.highlights && (
+          <ul className="mt-3 text-xs text-(--color-ink)/70 list-disc list-inside space-y-1">
+            {project.highlights.slice(0, 2).map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        )}
         <div className="mt-4 flex flex-wrap gap-2">
-          {project.category.map((cat: SkillId, idx: number) => (
+          {project.techStack.map((tech, idx) => (
             <span
-              key={`${project.id}-${cat}-${idx}`}
+              key={`${project.id}-${tech}-${idx}`}
               className="rounded-full bg-(--color-sage-soft) px-3 py-1 text-xs text-(--color-ink)"
             >
-              {cat}
+              {tech}
             </span>
           ))}
         </div>
